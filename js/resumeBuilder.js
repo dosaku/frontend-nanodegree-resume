@@ -1,40 +1,36 @@
-var contact_info = {
-	"mobile" : "916-239-8602",
-	"email" : "rjminniear@gmail.com",
-	"twitter" : "",
-	"github" : "https://github.com/dosaku",
-	"blog" : "",
-	"location" : "890 Bullion Ln, Folsom CA 95630"
-};
-
-var skills = ["Java", "Python", "C", "Git/GitHub"];
-
 var bio = {
 	"name" : "Ryan Minniear",
 	"role" : "Software Engineer",
-	"contact_info" : contact_info,
+	"contact" : {
+		"mobile" : "916-239-8602",
+		"email" : "rjminniear@gmail.com",
+		"twitter" : "",
+		"github" : "https://github.com/dosaku",
+		"blog" : "",
+		"location" : "890 Bullion Ln, Folsom CA 95630"
+	},
 	"picture_URL" : "images/ryan.jpg",
 	"welcome_message" : "Welcome!",
-	"skills": skills
+	"skills": ["Java", "Python", "C", "Git/GitHub"]
 };
 
 /* Return list of HTML-formatted skills */
 function getFormattedSkills() {
-	return skills.map(function(skill) {
+	return bio.skills.map(function(skill) {
 		return HTMLskills.replace("%data%", skill)
 	}).join("");
-}
+};
 
 formattedName = HTMLheaderName.replace("%data%", bio.name);
 formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 formattedPic = HTMLbioPic.replace("%data%", bio.picture_URL);
 formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
-formattedMobile = HTMLmobile.replace("%data%", contact_info.mobile);
-formattedEmail = HTMLemail.replace("%data%", contact_info.email);
-formattedTwitter = HTMLtwitter.replace("%data%", contact_info.twitter);
-formattedGithub = HTMLgithub.replace("%data%", contact_info.github);
-formattedBlog = HTMLblog.replace("%data%", contact_info.blog);
-formattedLocation = HTMLlocation.replace("%data%", contact_info.location);
+formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
+formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
+formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
+formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
+formattedBlog = HTMLblog.replace("%data%", bio.contact.blog);
+formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
 
 
 /* Header information */
