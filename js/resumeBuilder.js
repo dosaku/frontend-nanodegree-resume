@@ -31,19 +31,19 @@ var projects = {
 	"projects" : [
 		{
 			"title" : "CIMS/TUAM",
-			"dates" : "",
+			"dates" : "2006-2008",
 			"description" : "Usage and Accounting Manager",
 			"images" : []
 		},
 		{
 			"title" : "IA",
-			"dates" : "",
+			"dates" : "2008-2014",
 			"description" : "Information Archive",
 			"images" : []
 		},
 		{
 			"title" : "TSM",
-			"dates" : "",
+			"dates" : "2012-2014",
 			"description" : "TSM Server, Backup and Recovery",
 			"images" : []
 		}
@@ -95,7 +95,7 @@ function getFormattedImages(array) {
 var header = $("#header");
 header.prepend(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 header.prepend(HTMLskillsStart);
-// Note: The line added the ul with the "skills" id referenced here
+// Note: The line added  ul with "skills" id
 $("#skills").append(getFormattedSkills());
 header.prepend(HTMLheaderRole.replace("%data%", bio.role));
 header.prepend(HTMLheaderName.replace("%data%", bio.name));
