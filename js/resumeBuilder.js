@@ -73,6 +73,12 @@ var education = {
 			"school" : "Udacity",
 			"dates" : "Feb 2017",
 			"url" : "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+		},
+		{
+			"title" : "Java Multithreading",
+			"school" : "Udemy",
+			"dates" : "Feb 2017",
+			"url" : "https://www.udemy.com/java-multithreading/"
 		}
 	]
 }
