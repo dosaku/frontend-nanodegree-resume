@@ -6,7 +6,7 @@ var bio = {
 	"contact" : {
 		"mobile" : "916-239-8602",
 		"email" : "rjminniear@gmail.com",
-		"github" : "https://github.com/dosaku",
+		"github" : "dosaku",
 		"twitter" : "",
 		"blog" : "",
 		"location" : "890 Bullion Ln, Folsom CA 95630"
