@@ -15,19 +15,42 @@ var bio = {
 }
 
 var work = {
-	"employer" : "IBM",
-	"title" : "Software Engineer",
-	"dates": "October 2006 - May 2014",
-	"location" : "Folsom",
-	"description" : "Software Development work across multiple products and teams"
+	"jobs" : [
+		{ 
+			"employer" : "IBM",
+			"title" : "Software Engineer",
+			"location" : "Folsom",
+			"dates": "October 2006 - May 2014",
+			"description" : "Software Development work across multiple products and teams"
+		}
+	]
 }
 
 var education = {
-	"school" : "UC Davis",
-	"degree" : "Bachelor of Science",
-	"dates" : "2002-2006",
-	"location" : "Davis, CA",
-	"major" : "Computer Science"
+	"schools" : [
+		{
+			"name" : "UC Davis",
+			"location" : "Davis, CA",
+			"degree" : "Bachelor of Science",
+			"dates" : "2002-2006",
+			"url": "https://www.ucdavis.edu/",
+			"majors" : ["Computer Science"]
+		}
+	],
+	"onlineCourses" : [
+		{
+			"title" : "JavaScript Basics",
+			"school" : "Udacity",
+			"dates" : "Feb 2017",
+			"url" : "https://www.udacity.com/course/javascript-basics--ud804"
+		},
+		{
+			"title" : "Git and GitHub",
+			"school" : "Udacity",
+			"dates" : "Feb 2017",
+			"url" : "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+		}
+	]
 }
 
 /* Return list of HTML-formatted skills */
@@ -54,7 +77,7 @@ var formattedDates = HTMLworkDates.replace("%data%", work.dates);
 var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
 var formattedDescription = HTMLworkDescription.replace("%data%", work.description);
 
-var formattedSchool = HTMLschoolName.replace("%data%", education["school"]);
+var formattedSchool = HTMLschoolName.replace("%data%", education["name"]);
 var formattedDegree = HTMLschoolDegree.replace("%data%", education["degree"]);
 var formattedSchoolDates = HTMLschoolDates.replace("%data%", education["dates"]);
 var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education["location"]);
