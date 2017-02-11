@@ -12,7 +12,7 @@ var bio = {
 	"picture_URL" : "images/ryan.jpg",
 	"welcome_message" : "Welcome!",
 	"skills": ["Java", "Python", "C", "Git/GitHub"]
-};
+}
 
 var work = {
 	"employer" : "IBM",
@@ -20,7 +20,7 @@ var work = {
 	"dates": "October 2006 - May 2014",
 	"location" : "Folsom",
 	"description" : "Software Development work across multiple products and teams"
-};
+}
 
 var education = {
 	"school" : "UC Davis",
@@ -28,14 +28,14 @@ var education = {
 	"dates" : "2002-2006",
 	"location" : "Davis, CA",
 	"major" : "Computer Science"
-};
+}
 
 /* Return list of HTML-formatted skills */
 function getFormattedSkills() {
 	return bio.skills.map(function(skill) {
 		return HTMLskills.replace("%data%", skill)
 	}).join("");
-};
+}
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
