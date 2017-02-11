@@ -1,16 +1,16 @@
 var bio = {
 	"name" : "Ryan Minniear",
 	"role" : "Software Engineer",
+	"welcomeMessage" : "Welcome!",
+	"biopic " : "images/ryan.jpg",
 	"contact" : {
 		"mobile" : "916-239-8602",
 		"email" : "rjminniear@gmail.com",
-		"twitter" : "",
 		"github" : "https://github.com/dosaku",
+		"twitter" : "",
 		"blog" : "",
 		"location" : "890 Bullion Ln, Folsom CA 95630"
 	},
-	"picture_URL" : "images/ryan.jpg",
-	"welcome_message" : "Welcome!",
 	"skills": ["Java", "Python", "C", "Git/GitHub"]
 }
 
@@ -39,8 +39,8 @@ function getFormattedSkills() {
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedPic = HTMLbioPic.replace("%data%", bio.picture_URL);
-var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcome_message);
+var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
+var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
 var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
 var formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
