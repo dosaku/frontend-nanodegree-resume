@@ -71,17 +71,17 @@ var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
 var formattedBlog = HTMLblog.replace("%data%", bio.contact.blog);
 var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
 
-var formattedEmployer = HTMLworkEmployer.replace("%data%", work.employer)
-var formattedTitle = HTMLworkTitle.replace("%data%", work.title);
-var formattedDates = HTMLworkDates.replace("%data%", work.dates);
-var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.location);
-var formattedDescription = HTMLworkDescription.replace("%data%", work.description);
+var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[0].employer);
+var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[0].title);
+var formattedDates = HTMLworkDates.replace("%data%", work.jobs[0].dates);
+var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[0].location);
+var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[0].description);
 
-var formattedSchool = HTMLschoolName.replace("%data%", education["name"]);
-var formattedDegree = HTMLschoolDegree.replace("%data%", education["degree"]);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education["dates"]);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education["location"]);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education["major"]);
+var formattedSchool = HTMLschoolName.replace("%data%", education.schools[0].name);
+var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
+var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[0].dates);
+var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location);
+var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[0].majors[0]);
 
 /* Header information */
 $("#header").prepend(formattedWelcome);
@@ -113,3 +113,15 @@ $(".education-entry").append(formattedSchool + formattedDegree);
 $(".education-entry").append(formattedSchoolDates);
 $(".education-entry").append(formattedSchoolLocation);
 $(".education-entry").append(formattedSchoolMajor);
+
+// Online Courses
+$("#education").append(HTMLonlineClasses);
+$("#education").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title)
+	                 + HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school));
+$("#education").append(HTMLonlineDates.replace("%data%", education.onlineCourses[0].dates));
+$("#education").append(HTMLonlineURL.replace("%data%", education.onlineCourses[0].url));
+
+$("#education").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[1].title)
+	                 + HTMLonlineSchool.replace("%data%", education.onlineCourses[1].school));
+$("#education").append(HTMLonlineDates.replace("%data%", education.onlineCourses[1].dates));
+$("#education").append(HTMLonlineURL.replace("%data%", education.onlineCourses[1].url));
