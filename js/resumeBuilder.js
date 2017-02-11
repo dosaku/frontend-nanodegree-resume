@@ -12,7 +12,7 @@ var bio = {
 		"blog" : "",
 		"location" : "890 Bullion Ln, Folsom CA 95630"
 	},
-	"skills": ["Java", "Python", "C", "Git/GitHub"]
+	"skills": ["Java", "Python", "C", "Git / GitHub"]
 }
 
 var work = {
@@ -93,20 +93,21 @@ function getFormattedImages(array) {
 
 /* Bio */
 var header = $("#header");
-header.prepend(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
-header.prepend(HTMLskillsStart);
-// Note: The line added  ul with "skills" id
-$("#skills").append(getFormattedSkills());
+// Name and role get pre-pended befoer contact info, rest appended after
 header.prepend(HTMLheaderRole.replace("%data%", bio.role));
 header.prepend(HTMLheaderName.replace("%data%", bio.name));
-header.prepend(HTMLbioPic.replace("%data%", bio.biopic));
+header.append(HTMLbioPic.replace("%data%", bio.biopic));
+header.append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+header.append(HTMLskillsStart);
+// Note: The line added  ul with "skills" id
+$("#skills").append(getFormattedSkills());
 
 /* Contact information */
 var contact = $("#topContacts");
 contact.append(HTMLmobile.replace("%data%", bio.contact.mobile));
 contact.append(HTMLemail.replace("%data%", bio.contact.email));
-contact.append(HTMLtwitter.replace("%data%", bio.contact.twitter));
 contact.append(HTMLgithub.replace("%data%", bio.contact.github));
+contact.append(HTMLtwitter.replace("%data%", bio.contact.twitter));
 contact.append(HTMLblog.replace("%data%", bio.contact.blog));
 contact.append(HTMLlocation.replace("%data%", bio.contact.location));
 
