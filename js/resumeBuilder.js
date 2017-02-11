@@ -98,9 +98,11 @@ header.prepend(HTMLheaderRole.replace("%data%", bio.role));
 header.prepend(HTMLheaderName.replace("%data%", bio.name));
 header.append(HTMLbioPic.replace("%data%", bio.biopic));
 header.append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
-header.append(HTMLskillsStart);
-// Note: The line added  ul with "skills" id
-$("#skills").append(getFormattedSkills());
+if(bio.skills.length > 0) {
+	header.append(HTMLskillsStart);
+	// Note: The line added  ul with "skills" id
+	$("#skills").append(getFormattedSkills());
+}
 
 /* Contact information */
 var contact = $("#topContacts");
