@@ -2,7 +2,7 @@ var bio = {
 	"name" : "Ryan Minniear",
 	"role" : "Software Engineer",
 	"welcomeMessage" : "Welcome!",
-	"biopic " : "images/ryan.jpg",
+	"biopic" : "images/ryan.jpg",
 	"contact" : {
 		"mobile" : "916-239-8602",
 		"email" : "rjminniear@gmail.com",
