@@ -1,3 +1,4 @@
+/* bio, work, education, and project data */
 var bio = {
 	"name" : "Ryan Minniear",
 	"role" : "Software Engineer",
@@ -16,7 +17,7 @@ var bio = {
 
 var work = {
 	"jobs" : [
-		{ 
+		{
 			"employer" : "IBM",
 			"title" : "Software Engineer",
 			"location" : "Folsom",
@@ -60,68 +61,58 @@ function getFormattedSkills() {
 	}).join("");
 }
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
-var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-var formattedMobile = HTMLmobile.replace("%data%", bio.contact.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contact.email);
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contact.twitter);
-var formattedGithub = HTMLgithub.replace("%data%", bio.contact.github);
-var formattedBlog = HTMLblog.replace("%data%", bio.contact.blog);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contact.location);
-
-var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[0].employer);
-var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[0].title);
-var formattedDates = HTMLworkDates.replace("%data%", work.jobs[0].dates);
-var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[0].location);
-var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[0].description);
-
-var formattedSchool = HTMLschoolName.replace("%data%", education.schools[0].name);
-var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[0].degree);
-var formattedSchoolDates = HTMLschoolDates.replace("%data%", education.schools[0].dates);
-var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[0].location);
-var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[0].majors[0]);
-
 /* Header information */
-$("#header").prepend(formattedWelcome);
-$("#header").prepend(HTMLskillsStart);
+var header = $("#header");
+header.prepend(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+header.prepend(HTMLskillsStart);
 // Note: The line added the ul with the "skills" id referenced here
 $("#skills").append(getFormattedSkills());
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedPic);
+header.prepend(HTMLheaderRole.replace("%data%", bio.role));
+header.prepend(HTMLheaderName.replace("%data%", bio.name));
+header.prepend(HTMLbioPic.replace("%data%", bio.biopic));
 
 /* Contact information */
-$("#topContacts").append(formattedMobile);
-$("#topContacts").append(formattedEmail);
-$("#topContacts").append(formattedTwitter);
-$("#topContacts").append(formattedGithub);
-$("#topContacts").append(formattedBlog);
-$("#topContacts").append(formattedLocation);
+var contact = $("#topContacts");
+contact.append(HTMLmobile.replace("%data%", bio.contact.mobile));
+contact.append(HTMLemail.replace("%data%", bio.contact.email));
+contact.append(HTMLtwitter.replace("%data%", bio.contact.twitter));
+contact.append(HTMLgithub.replace("%data%", bio.contact.github));
+contact.append(HTMLblog.replace("%data%", bio.contact.blog));
+contact.append(HTMLlocation.replace("%data%", bio.contact.location));
 
 /* Employment history */
-$("#workExperience").append(HTMLworkStart);
-$(".work-entry").append(formattedEmployer + formattedTitle);
-$(".work-entry").append(formattedDates);
-$(".work-entry").append(formattedWorkLocation);
-$(".work-entry").append(formattedDescription);
+work.jobs.forEach(function(job) {
+	$("#workExperience").append(HTMLworkStart);
+	// Above line adds div with .work-entry
+	var entry = $(".work-entry").last();
+	entry.append(HTMLworkEmployer.replace("%data%", job.employer) 
+		       + HTMLworkTitle.replace("%data%", job.title));
+	entry.append(HTMLworkDates.replace("%data%", job.dates));
+	entry.append(HTMLworkLocation.replace("%data%", job.location));
+	entry.append(HTMLworkDescription.replace("%data%", job.description));
+});
 
 /* Education */
-$("#education").append(HTMLschoolStart);
-$(".education-entry").append(formattedSchool + formattedDegree);
-$(".education-entry").append(formattedSchoolDates);
-$(".education-entry").append(formattedSchoolLocation);
-$(".education-entry").append(formattedSchoolMajor);
+// Schools
+education.schools.forEach(function(school) {
+	$("#education").append(HTMLschoolStart);
+	// Above line adds div with .education_entry
+	var entry = $(".education-entry").last();
+	entry.append(HTMLschoolName.replace("%data%", school.name)
+		       + HTMLschoolDegree.replace("%data%", school.degree));
+	entry.append(HTMLschoolDates.replace("%data%", school.dates));
+	entry.append(HTMLschoolLocation.replace("%data%", school.location));
+	entry.append(HTMLschoolMajor.replace("%data%", school.majors.join(", ")));
+});
 
 // Online Courses
 $("#education").append(HTMLonlineClasses);
-$("#education").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[0].title)
-	                 + HTMLonlineSchool.replace("%data%", education.onlineCourses[0].school));
-$("#education").append(HTMLonlineDates.replace("%data%", education.onlineCourses[0].dates));
-$("#education").append(HTMLonlineURL.replace("%data%", education.onlineCourses[0].url));
-
-$("#education").append(HTMLonlineTitle.replace("%data%", education.onlineCourses[1].title)
-	                 + HTMLonlineSchool.replace("%data%", education.onlineCourses[1].school));
-$("#education").append(HTMLonlineDates.replace("%data%", education.onlineCourses[1].dates));
-$("#education").append(HTMLonlineURL.replace("%data%", education.onlineCourses[1].url));
+education.onlineCourses.forEach(function(course) {
+	$("#education").append(HTMLschoolStart);
+	// Above line adds div with .education_entry
+	var entry = $(".education-entry").last();
+	entry.append(HTMLonlineTitle.replace("%data%", course.title)
+		       + HTMLonlineSchool.replace("%data%", course.school));
+	entry.append(HTMLonlineDates.replace("%data%", course.dates));
+	entry.append(HTMLonlineURL.replace("%data%", course.url));	
+});
