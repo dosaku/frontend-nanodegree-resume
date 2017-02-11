@@ -27,6 +27,29 @@ var work = {
 	]
 }
 
+var projects = {
+	"projects" : [
+		{
+			"title" : "CIMS/TUAM",
+			"dates" : "",
+			"description" : "Usage and Accounting Manager",
+			"images" : []
+		},
+		{
+			"title" : "IA",
+			"dates" : "",
+			"description" : "Information Archive",
+			"images" : []
+		},
+		{
+			"title" : "TSM",
+			"dates" : "",
+			"description" : "TSM Server, Backup and Recovery",
+			"images" : []
+		}
+	]
+}
+
 var education = {
 	"schools" : [
 		{
@@ -61,7 +84,14 @@ function getFormattedSkills() {
 	}).join("");
 }
 
-/* Header information */
+/* Return list of HTML-formatted images (for projects) */
+function getFormattedImages(array) {
+	return array.map(function(image) {
+		return HTMLprojectImage.replace("%data%", image)
+	}).join("");
+}
+
+/* Bio */
 var header = $("#header");
 header.prepend(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 header.prepend(HTMLskillsStart);
@@ -92,11 +122,22 @@ work.jobs.forEach(function(job) {
 	entry.append(HTMLworkDescription.replace("%data%", job.description));
 });
 
+/* Projects */
+projects.projects.forEach(function(project) {
+	$("#projects").append(HTMLprojectStart);
+	// Above line adds div with .project-entry
+	var entry = $(".project-entry").last();
+	entry.append(HTMLprojectTitle.replace("%data%", project.title));
+	entry.append(HTMLprojectDates.replace("%data%", project.dates));
+	entry.append(HTMLprojectDescription.replace("%data%", project.description));
+	entry.append(getFormattedImages(project.images));
+});
+
 /* Education */
 // Schools
 education.schools.forEach(function(school) {
 	$("#education").append(HTMLschoolStart);
-	// Above line adds div with .education_entry
+	// Above line adds div with .education-entry
 	var entry = $(".education-entry").last();
 	entry.append(HTMLschoolName.replace("%data%", school.name)
 		       + HTMLschoolDegree.replace("%data%", school.degree));
@@ -109,7 +150,7 @@ education.schools.forEach(function(school) {
 $("#education").append(HTMLonlineClasses);
 education.onlineCourses.forEach(function(course) {
 	$("#education").append(HTMLschoolStart);
-	// Above line adds div with .education_entry
+	// Above line adds div with .education-entry
 	var entry = $(".education-entry").last();
 	entry.append(HTMLonlineTitle.replace("%data%", course.title)
 		       + HTMLonlineSchool.replace("%data%", course.school));
