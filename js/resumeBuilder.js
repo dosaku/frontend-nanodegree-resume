@@ -1,80 +1,80 @@
 /* bio, work, education, and project data */
 var bio = {
-	"name": "Ryan Minniear",
-	"role": "Software Engineer",
-	"welcomeMessage": "Welcome!",
-	"biopic": "images/ryan.jpg",
-	"contact": {
-		"mobile": "916-239-8602",
-		"email": "rjminniear@gmail.com",
-		"github": "dosaku",
-		"twitter": "",
-		"blog": "",
-		"location": "890 Bullion Ln, Folsom CA 95630"
+	name: "Ryan Minniear",
+	role: "Software Engineer",
+	welcomeMessage: "Welcome!",
+	biopic: "images/ryan.jpg",
+	contact: {
+		mobile: "916-239-8602",
+		email: "rjminniear@gmail.com",
+		github: "dosaku",
+		twitter: "",
+		blog: "",
+		location: "890 Bullion Ln, Folsom CA 95630"
 	},
-	"skills": ["Java", "Python", "C", "Git / GitHub"]
+	skills: ["Java", "Python", "C", "Git / GitHub"]
 }
 
 var work = {
-	"jobs": [
+	jobs: [
 		{
-			"employer": "IBM",
-			"title": "Software Engineer",
-			"location": "Folsom",
-			"dates": "October 2006 - May 2014",
-			"description": "Software Development work across multiple products and teams"
+			employer: "IBM",
+			title: "Software Engineer",
+			location: "Folsom",
+			dates: "October 2006 - May 2014",
+			description: "Software Development work across multiple products and teams"
 		}
 	]
 }
 
 var projects = {
-	"projects": [
+	projects: [
 		{
-			"title": "CIMS/TUAM",
-			"dates": "2006-2008",
-			"description": "Usage and Accounting Manager",
-			"images": []
+			title: "CIMS/TUAM",
+			dates: "2006-2008",
+			description: "Usage and Accounting Manager",
+			images: []
 		}, {
-			"title": "IA",
-			"dates": "2008-2014",
-			"description": "Information Archive",
-			"images": []
+			title: "IA",
+			dates: "2008-2014",
+			description: "Information Archive",
+			images: []
 		}, {
-			"title": "TSM",
-			"dates": "2012-2014",
-			"description": "TSM Server, Backup and Recovery",
-			"images": []
+			title: "TSM",
+			dates: "2012-2014",
+			description: "TSM Server, Backup and Recovery",
+			images: []
 		}
 	]
 }
 
 var education = {
-	"schools": [
+	schools: [
 		{
-			"name": "UC Davis",
-			"location": "Davis, CA",
-			"degree": "Bachelor of Science",
-			"dates": "2002-2006",
-			"url": "https://www.ucdavis.edu/",
-			"majors": ["Computer Science"]
+			name: "UC Davis",
+			location: "Davis, CA",
+			degree: "Bachelor of Science",
+			dates: "2002-2006",
+			url: "https://www.ucdavis.edu/",
+			majors: ["Computer Science"]
 		}
 	],
-	"onlineCourses": [
+	onlineCourses: [
 		{
-			"title": "JavaScript Basics",
-			"school": "Udacity",
-			"dates": "Feb 2017",
-			"url": "https://www.udacity.com/course/javascript-basics--ud804"
+			title: "JavaScript Basics",
+			school: "Udacity",
+			dates: "Feb 2017",
+			url: "https://www.udacity.com/course/javascript-basics--ud804"
 		}, {
-			"title": "Git and GitHub",
-			"school": "Udacity",
-			"dates": "Feb 2017",
-			"url": "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
+			title: "Git and GitHub",
+			school: "Udacity",
+			dates: "Feb 2017",
+			url: "https://www.udacity.com/course/how-to-use-git-and-github--ud775"
 		}, {
-			"title": "Java Multithreading",
-			"school": "Udemy",
-			"dates": "Feb 2017",
-			"url": "https://www.udemy.com/java-multithreading/"
+			title: "Java Multithreading",
+			school: "Udemy",
+			dates: "Feb 2017",
+			url: "https://www.udemy.com/java-multithreading/"
 		}
 	]
 }
