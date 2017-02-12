@@ -4,7 +4,7 @@ var bio = {
 	role: "Software Engineer",
 	welcomeMessage: "Welcome!",
 	biopic: "images/ryan.jpg",
-	contact: {
+	contacts: {
 		mobile: "916-239-8602",
 		email: "rjminniear@gmail.com",
 		github: "dosaku",
@@ -20,7 +20,7 @@ var work = {
 		{
 			employer: "IBM",
 			title: "Software Engineer",
-			location: "Folsom",
+			location: "Roseville, CA",
 			dates: "October 2006 - May 2014",
 			description: "Software Development work across multiple products and teams"
 		}
@@ -107,12 +107,12 @@ bio.display = function() {
     }
 
     var contact = $('#topContacts');
-    contact.append(HTMLmobile.replace('%data%', bio.contact.mobile));
-    contact.append(HTMLemail.replace('%data%', bio.contact.email));
-    contact.append(HTMLgithub.replace('%data%', bio.contact.github));
-    contact.append(HTMLtwitter.replace('%data%', bio.contact.twitter));
-    contact.append(HTMLblog.replace('%data%', bio.contact.blog));
-    contact.append(HTMLlocation.replace('%data%', bio.contact.location));
+    contact.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    contact.append(HTMLemail.replace('%data%', bio.contacts.email));
+    contact.append(HTMLgithub.replace('%data%', bio.contacts.github));
+    contact.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    contact.append(HTMLblog.replace('%data%', bio.contacts.blog));
+    contact.append(HTMLlocation.replace('%data%', bio.contacts.location));
 };
 
 work.display = function() {
@@ -169,3 +169,4 @@ bio.display();
 work.display();
 projects.display();
 education.display();
+$('#mapDiv').append(googleMap);
