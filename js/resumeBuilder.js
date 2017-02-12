@@ -124,7 +124,7 @@ work.jobs.forEach(function(job) {
 	$("#workExperience").append(HTMLworkStart);
 	// Above line adds div with .work-entry
 	var entry = $(".work-entry:last");
-	entry.append(HTMLworkEmployer.replace("%data%", job.employer) 
+	entry.append(HTMLworkEmployer.replace("%data%", job.employer)
 		       + HTMLworkTitle.replace("%data%", job.title));
 	entry.append(HTMLworkDates.replace("%data%", job.dates));
 	entry.append(HTMLworkLocation.replace("%data%", job.location));
@@ -164,5 +164,5 @@ education.onlineCourses.forEach(function(course) {
 	entry.append(HTMLonlineTitle.replace("%data%", course.title)
 		       + HTMLonlineSchool.replace("%data%", course.school));
 	entry.append(HTMLonlineDates.replace("%data%", course.dates));
-	entry.append(HTMLonlineURL.replace("%data%", course.url));	
+	entry.append(HTMLonlineURL.replace("%data%", course.url));
 });
