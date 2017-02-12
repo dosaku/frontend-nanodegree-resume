@@ -93,72 +93,82 @@ function getFormattedImages(array) {
 	}).join('');
 }
 
-/* Bio */
-var header = $('#header');
-// Name and role get pre-pended befoer contact info, rest appended after
-header.prepend(HTMLheaderRole.replace('%data%', bio.role));
-header.prepend(HTMLheaderName.replace('%data%', bio.name));
-header.append(HTMLbioPic.replace('%data%', bio.biopic));
-header.append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-if(bio.skills.length > 0) {
-	header.append(HTMLskillsStart);
-	// Note: The line added  ul with 'skills' id
-	$('#skills').append(getFormattedSkills());
+function displayBio() {
+    var header = $('#header');
+    // Name and role get pre-pended befoer contact info, rest appended after
+    header.prepend(HTMLheaderRole.replace('%data%', bio.role));
+    header.prepend(HTMLheaderName.replace('%data%', bio.name));
+    header.append(HTMLbioPic.replace('%data%', bio.biopic));
+    header.append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+    if(bio.skills.length > 0) {
+        header.append(HTMLskillsStart);
+        // Note: The line added  ul with 'skills' id
+        $('#skills').append(getFormattedSkills());
+    }
 }
 
-/* Contact information */
-var contact = $('#topContacts');
-contact.append(HTMLmobile.replace('%data%', bio.contact.mobile));
-contact.append(HTMLemail.replace('%data%', bio.contact.email));
-contact.append(HTMLgithub.replace('%data%', bio.contact.github));
-contact.append(HTMLtwitter.replace('%data%', bio.contact.twitter));
-contact.append(HTMLblog.replace('%data%', bio.contact.blog));
-contact.append(HTMLlocation.replace('%data%', bio.contact.location));
+function displayContact() {
+    var contact = $('#topContacts');
+    contact.append(HTMLmobile.replace('%data%', bio.contact.mobile));
+    contact.append(HTMLemail.replace('%data%', bio.contact.email));
+    contact.append(HTMLgithub.replace('%data%', bio.contact.github));
+    contact.append(HTMLtwitter.replace('%data%', bio.contact.twitter));
+    contact.append(HTMLblog.replace('%data%', bio.contact.blog));
+    contact.append(HTMLlocation.replace('%data%', bio.contact.location));
+}
 
-/* Employment history */
-work.jobs.forEach(function(job) {
-	$('#workExperience').append(HTMLworkStart);
-	// Above line adds div with .work-entry
-	var entry = $('.work-entry:last');
-	entry.append(HTMLworkEmployer.replace('%data%', job.employer) +
-				 HTMLworkTitle.replace('%data%', job.title));
-	entry.append(HTMLworkDates.replace('%data%', job.dates));
-	entry.append(HTMLworkLocation.replace('%data%', job.location));
-	entry.append(HTMLworkDescription.replace('%data%', job.description));
-});
+function displayWork() {
+    work.jobs.forEach(function(job) {
+        $('#workExperience').append(HTMLworkStart);
+        // Above line adds div with .work-entry
+        var entry = $('.work-entry:last');
+        entry.append(HTMLworkEmployer.replace('%data%', job.employer) +
+                     HTMLworkTitle.replace('%data%', job.title));
+        entry.append(HTMLworkDates.replace('%data%', job.dates));
+        entry.append(HTMLworkLocation.replace('%data%', job.location));
+        entry.append(HTMLworkDescription.replace('%data%', job.description));
+    });
+}
 
-/* Projects */
-projects.projects.forEach(function(project) {
-	$('#projects').append(HTMLprojectStart);
-	// Above line adds div with .project-entry
-	var entry = $('.project-entry:last');
-	entry.append(HTMLprojectTitle.replace('%data%', project.title));
-	entry.append(HTMLprojectDates.replace('%data%', project.dates));
-	entry.append(HTMLprojectDescription.replace('%data%', project.description));
-	entry.append(getFormattedImages(project.images));
-});
+function displayProjects() {
+    projects.projects.forEach(function(project) {
+        $('#projects').append(HTMLprojectStart);
+        // Above line adds div with .project-entry
+        var entry = $('.project-entry:last');
+        entry.append(HTMLprojectTitle.replace('%data%', project.title));
+        entry.append(HTMLprojectDates.replace('%data%', project.dates));
+        entry.append(HTMLprojectDescription.replace('%data%', project.description));
+        entry.append(getFormattedImages(project.images));
+    });
+}
 
-/* Education */
-// Schools
-education.schools.forEach(function(school) {
-	$('#education').append(HTMLschoolStart);
-	// Above line adds div with .education-entry
-	var entry = $('.education-entry:last');
-	entry.append(HTMLschoolName.replace('%data%', school.name) +
-				 HTMLschoolDegree.replace('%data%', school.degree));
-	entry.append(HTMLschoolDates.replace('%data%', school.dates));
-	entry.append(HTMLschoolLocation.replace('%data%', school.location));
-	entry.append(HTMLschoolMajor.replace('%data%', school.majors.join(', ')));
-});
+function displayEducation() {
+    education.schools.forEach(function(school) {
+        $('#education').append(HTMLschoolStart);
+        // Above line adds div with .education-entry
+        var entry = $('.education-entry:last');
+        entry.append(HTMLschoolName.replace('%data%', school.name) +
+                     HTMLschoolDegree.replace('%data%', school.degree));
+        entry.append(HTMLschoolDates.replace('%data%', school.dates));
+        entry.append(HTMLschoolLocation.replace('%data%', school.location));
+        entry.append(HTMLschoolMajor.replace('%data%', school.majors.join(', ')));
+    });
 
-// Online Courses
-$('#education').append(HTMLonlineClasses);
-education.onlineCourses.forEach(function(course) {
-	$('#education').append(HTMLschoolStart);
-	// Above line adds div with .education-entry
-	var entry = $('.education-entry:last');
-	entry.append(HTMLonlineTitle.replace('%data%', course.title) +
-				 HTMLonlineSchool.replace('%data%', course.school));
-	entry.append(HTMLonlineDates.replace('%data%', course.dates));
-	entry.append(HTMLonlineURL.replace('%data%', course.url));
-});
+    // Online Courses
+    $('#education').append(HTMLonlineClasses);
+    education.onlineCourses.forEach(function(course) {
+        $('#education').append(HTMLschoolStart);
+        // Above line adds div with .education-entry
+        var entry = $('.education-entry:last');
+        entry.append(HTMLonlineTitle.replace('%data%', course.title) +
+                     HTMLonlineSchool.replace('%data%', course.school));
+        entry.append(HTMLonlineDates.replace('%data%', course.dates));
+        entry.append(HTMLonlineURL.replace('%data%', course.url));
+    });
+}
+
+displayBio();
+displayContact();
+displayWork();
+displayProjects();
+displayEducation();
