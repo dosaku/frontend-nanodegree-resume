@@ -123,7 +123,7 @@ contact.append(HTMLlocation.replace("%data%", bio.contact.location));
 work.jobs.forEach(function(job) {
 	$("#workExperience").append(HTMLworkStart);
 	// Above line adds div with .work-entry
-	var entry = $(".work-entry").last();
+	var entry = $(".work-entry:last");
 	entry.append(HTMLworkEmployer.replace("%data%", job.employer) 
 		       + HTMLworkTitle.replace("%data%", job.title));
 	entry.append(HTMLworkDates.replace("%data%", job.dates));
@@ -135,7 +135,7 @@ work.jobs.forEach(function(job) {
 projects.projects.forEach(function(project) {
 	$("#projects").append(HTMLprojectStart);
 	// Above line adds div with .project-entry
-	var entry = $(".project-entry").last();
+	var entry = $(".project-entry:last");
 	entry.append(HTMLprojectTitle.replace("%data%", project.title));
 	entry.append(HTMLprojectDates.replace("%data%", project.dates));
 	entry.append(HTMLprojectDescription.replace("%data%", project.description));
@@ -147,7 +147,7 @@ projects.projects.forEach(function(project) {
 education.schools.forEach(function(school) {
 	$("#education").append(HTMLschoolStart);
 	// Above line adds div with .education-entry
-	var entry = $(".education-entry").last();
+	var entry = $(".education-entry:last");
 	entry.append(HTMLschoolName.replace("%data%", school.name)
 		       + HTMLschoolDegree.replace("%data%", school.degree));
 	entry.append(HTMLschoolDates.replace("%data%", school.dates));
@@ -160,7 +160,7 @@ $("#education").append(HTMLonlineClasses);
 education.onlineCourses.forEach(function(course) {
 	$("#education").append(HTMLschoolStart);
 	// Above line adds div with .education-entry
-	var entry = $(".education-entry").last();
+	var entry = $(".education-entry:last");
 	entry.append(HTMLonlineTitle.replace("%data%", course.title)
 		       + HTMLonlineSchool.replace("%data%", course.school));
 	entry.append(HTMLonlineDates.replace("%data%", course.dates));
