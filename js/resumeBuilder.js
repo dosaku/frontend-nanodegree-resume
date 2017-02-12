@@ -106,13 +106,13 @@ bio.display = function() {
         $('#skills').append(getFormattedSkills());
     }
 
-    var contact = $('#topContacts');
-    contact.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-    contact.append(HTMLemail.replace('%data%', bio.contacts.email));
-    contact.append(HTMLgithub.replace('%data%', bio.contacts.github));
-    contact.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
-    contact.append(HTMLblog.replace('%data%', bio.contacts.blog));
-    contact.append(HTMLlocation.replace('%data%', bio.contacts.location));
+    var contacts = $('#topContacts, #footerContacts');
+    contacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+    contacts.append(HTMLemail.replace('%data%', bio.contacts.email));
+    contacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
+    contacts.append(HTMLtwitter.replace('%data%', bio.contacts.twitter));
+    contacts.append(HTMLblog.replace('%data%', bio.contacts.blog));
+    contacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
 };
 
 work.display = function() {
