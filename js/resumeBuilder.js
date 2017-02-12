@@ -93,7 +93,7 @@ function getFormattedImages(array) {
 	}).join('');
 }
 
-function displayBio() {
+bio.display = function() {
     var header = $('#header');
     // Name and role get pre-pended befoer contact info, rest appended after
     header.prepend(HTMLheaderRole.replace('%data%', bio.role));
@@ -105,9 +105,7 @@ function displayBio() {
         // Note: The line added  ul with 'skills' id
         $('#skills').append(getFormattedSkills());
     }
-}
 
-function displayContact() {
     var contact = $('#topContacts');
     contact.append(HTMLmobile.replace('%data%', bio.contact.mobile));
     contact.append(HTMLemail.replace('%data%', bio.contact.email));
@@ -115,9 +113,9 @@ function displayContact() {
     contact.append(HTMLtwitter.replace('%data%', bio.contact.twitter));
     contact.append(HTMLblog.replace('%data%', bio.contact.blog));
     contact.append(HTMLlocation.replace('%data%', bio.contact.location));
-}
+};
 
-function displayWork() {
+work.display = function() {
     work.jobs.forEach(function(job) {
         $('#workExperience').append(HTMLworkStart);
         // Above line adds div with .work-entry
@@ -128,9 +126,9 @@ function displayWork() {
         entry.append(HTMLworkLocation.replace('%data%', job.location));
         entry.append(HTMLworkDescription.replace('%data%', job.description));
     });
-}
+};
 
-function displayProjects() {
+projects.display = function() {
     projects.projects.forEach(function(project) {
         $('#projects').append(HTMLprojectStart);
         // Above line adds div with .project-entry
@@ -140,9 +138,9 @@ function displayProjects() {
         entry.append(HTMLprojectDescription.replace('%data%', project.description));
         entry.append(getFormattedImages(project.images));
     });
-}
+};
 
-function displayEducation() {
+education.display = function() {
     education.schools.forEach(function(school) {
         $('#education').append(HTMLschoolStart);
         // Above line adds div with .education-entry
@@ -165,10 +163,9 @@ function displayEducation() {
         entry.append(HTMLonlineDates.replace('%data%', course.dates));
         entry.append(HTMLonlineURL.replace('%data%', course.url));
     });
-}
+};
 
-displayBio();
-displayContact();
-displayWork();
-displayProjects();
-displayEducation();
+bio.display();
+work.display();
+projects.display();
+education.display();
